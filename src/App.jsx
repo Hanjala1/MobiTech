@@ -9,7 +9,7 @@ import { items } from './components/Data'
 import Footer from './components/Footer'
 import TechFaq from './components/TechFaq'
 import PaymentFaq from './components/PaymentFaq'
-import IosFaq from './components/Iosfaq'
+import IosFaq from './components/IosFaq'
 import AndroidFaq from './components/AndriodFaq'
 
 const App = () => {

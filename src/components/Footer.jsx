@@ -40,7 +40,7 @@ function Footer() {
 
           {/* FAQ Section */}
           <div className="col-md-2 mb-4">
-            <h6 className="text-uppercase">FAQ</h6>
+            <h6 className="text-uppercase">FAQs</h6>
             <ul className="list-unstyled">
               <li><Link to="/techfaq" className="text-light text-decoration-none">Technology</Link></li>
               <li><a href="/iosfaq" className="text-light text-decoration-none">Ios Version</a></li>
