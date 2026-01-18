@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import "./Pagination.css"
 
 function Pagination() {
   const [tableData, setTableData] = useState({ users: [], total: 0 });
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowPerPage] = useState(8);
+  const [rowPerPage] = useState(9);
 
   const indexOfLastItem = currentPage * rowPerPage;
   const indexOfFirstItem = indexOfLastItem - rowPerPage;
@@ -44,9 +45,15 @@ function Pagination() {
                 <h5 className="card-title">
                   {user.firstName} {user.lastName}
                 </h5>
-                <p><strong>Email:</strong> {user.email}</p>
-                <p><strong>Gender:</strong> {user.gender}</p>
-                <p><strong>Phone:</strong> {user.phone}</p>
+                <p>
+                  <strong>Email:</strong> {user.email}
+                </p>
+                <p>
+                  <strong>Gender:</strong> {user.gender}
+                </p>
+                <p>
+                  <strong>Phone:</strong> {user.phone}
+                </p>
               </div>
             </div>
           </div>
@@ -54,22 +61,24 @@ function Pagination() {
       </div>
 
       {totalPages > 1 && (
-        <div className="d-flex justify-content-between align-items-center mt-3">
-          <button onClick={handlePre}>Previous</button>
+        <div className="pagination-wrapper">
+          <button onClick={handlePre} disabled={currentPage === 1}>
+            Previous
+          </button>
 
           {Array.from({ length: totalPages }, (_, i) => (
             <button
               key={i}
               onClick={() => handlePage(i + 1)}
-              style={{
-                fontWeight: currentPage === i + 1 ? "bold" : "normal"
-              }}
+              className={currentPage === i + 1 ? "active" : ""}
             >
               {i + 1}
             </button>
           ))}
 
-          <button onClick={handleNext}>Next</button>
+          <button onClick={handleNext} disabled={currentPage === totalPages}>
+            Next
+          </button>
         </div>
       )}
     </div>
